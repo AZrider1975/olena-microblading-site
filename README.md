@@ -11,6 +11,8 @@
             padding: 0;
             background-color: #ffe6f0;
             color: #333;
+            position: relative;
+            overflow-x: hidden;
         }
         header {
             background-color: #ff99c8;
@@ -67,6 +69,53 @@
             bottom: 0;
             width: 100%;
         }
+        .hearts {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            z-index: -1;
+            overflow: hidden;
+        }
+        .heart {
+            position: absolute;
+            background-color: #ff66a3;
+            width: 50px;
+            height: 50px;
+            transform: rotate(45deg);
+            animation: float 10s infinite;
+        }
+        .heart:before,
+        .heart:after {
+            content: "";
+            position: absolute;
+            background-color: #ff66a3;
+            border-radius: 50%;
+            width: 50px;
+            height: 50px;
+        }
+        .heart:before {
+            top: -25px;
+            left: 0;
+        }
+        .heart:after {
+            left: -25px;
+            top: 0;
+        }
+        @keyframes float {
+            0% {
+                transform: translateY(0) rotate(45deg);
+                opacity: 1;
+            }
+            50% {
+                opacity: 0.5;
+            }
+            100% {
+                transform: translateY(-100vh) rotate(45deg);
+                opacity: 0;
+            }
+        }
     </style>
 </head>
 <body>
@@ -91,7 +140,20 @@
         </div>
     </div>
 
+    <div class="hearts">
+        <div class="heart" style="top: 10%; left: 20%; width: 30px; height: 30px;"></div>
+        <div class="heart" style="top: 30%; left: 50%; width: 50px; height: 50px;"></div>
+        <div class="heart" style="top: 60%; left: 70%; width: 40px; height: 40px;"></div>
+        <div class="heart" style="top: 80%; left: 30%; width: 60px; height: 60px;"></div>
+        <div class="heart" style="top: 20%; left: 80%; width: 20px; height: 20px;"></div>
+    </div>
+
     <footer>
+        <p>&copy; 2025 Olena's Microblading Services. All Rights Reserved.</p>
+    </footer>
+</body>
+</html>
+
         <p>&copy; 2025 Olena's Microblading Services. All Rights Reserved.</p>
     </footer>
 </body>
